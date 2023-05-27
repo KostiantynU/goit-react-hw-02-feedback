@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { StatisticSection, Paragraph } from './StatisticsStyled';
+import { StatisticSection, Paragraph, Hthree } from './StatisticsStyled';
 export { Statistics };
 
 class Statistics extends Component {
   render() {
-    // console.log(this.props);
-    const {
-      data: { good, neutral, bad },
-    } = this.props;
-    // console.log(good, neutral, bad);
+    const { avarage, total, good, neutral, bad } = this.props;
     return (
       <StatisticSection>
-        <h3>Statistics</h3>
+        <Hthree>Statistics</Hthree>
         <Paragraph>Good: {good}</Paragraph>
         <Paragraph>Neutral: {neutral}</Paragraph>
         <Paragraph>Bad: {bad}</Paragraph>
+        <Paragraph>Total: {total()}</Paragraph>
+        <Paragraph>Positive feedback: {avarage()}</Paragraph>
       </StatisticSection>
     );
   }
