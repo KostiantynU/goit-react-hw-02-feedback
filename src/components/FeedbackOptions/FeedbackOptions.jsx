@@ -6,6 +6,7 @@ import {
   FeedbackBtnNeutral,
   FeedbackBtnBad,
 } from './FeedbackOptionsStyled';
+import PropTypes from 'prop-types';
 export { FeedbackOptions };
 class FeedbackOptions extends Component {
   render() {
@@ -27,3 +28,4 @@ class FeedbackOptions extends Component {
     );
   }
 }
+FeedbackOptionsStyled.propTypes = { onLeaveFeedback: PropTypes.func };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StatisticSection, Paragraph, Hthree } from './StatisticsStyled';
+import PropTypes from 'prop-types';
 export { Statistics };
 
 class Statistics extends Component {
@@ -17,3 +18,10 @@ class Statistics extends Component {
     );
   }
 }
+Statistics.propTypes = {
+  avarage: PropTypes.func,
+  total: PropTypes.func,
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+};
