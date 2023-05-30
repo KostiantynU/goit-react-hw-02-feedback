@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { StatisticSection, Paragraph, Hthree } from './StatisticsStyled';
 import PropTypes from 'prop-types';
-export { Statistics };
 
-class Statistics extends Component {
+export class Statistics extends Component {
   render() {
     const { avarage, total, good, neutral, bad } = this.props;
     return (

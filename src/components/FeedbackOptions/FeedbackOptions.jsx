@@ -7,8 +7,7 @@ import {
   FeedbackBtnBad,
 } from './FeedbackOptionsStyled';
 import PropTypes from 'prop-types';
-export { FeedbackOptions };
-class FeedbackOptions extends Component {
+export class FeedbackOptions extends Component {
   render() {
     const { onLeaveFeedback } = this.props;
 
