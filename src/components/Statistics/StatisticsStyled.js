@@ -6,6 +6,6 @@ export const Paragraph = styled.p`
   font-size: 15px;
   margin: 0.5em;
 `;
-export const Hthree = styled.h3`
+export const SubTitle = styled.h2`
   margin: 0.2em;
 `;

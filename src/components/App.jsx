@@ -9,17 +9,19 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  onLeaveFeedback = evt => {
-    const { name: typeOfMood } = evt.target;
+  onLeaveFeedback = option => {
     this.setState(prevState => {
       return {
-        [typeOfMood]: prevState[typeOfMood] + 1,
+        [option]: prevState[option] + 1,
       };
     });
   };
   countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state;
-    return good + neutral + bad;
+    // const { good, neutral, bad } = this.state;
+    // return good + neutral + bad;
+    return Object.values(this.state).reduce((acc, el) => {
+      return acc + el;
+    }, 0);
   };
   countPositiveFeedbackPercentage = () => {
     const { good, neutral, bad } = this.state;
@@ -27,18 +29,20 @@ export class App extends Component {
   };
   render() {
     const { good, neutral, bad } = this.state;
+    const total = this.countTotalFeedback();
+    const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
     return (
       <MainSection>
-        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
-        {good === 0 && neutral === 0 && bad === 0 ? (
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} array={Object.keys(this.state)} />
+        {total === 0 ? (
           <NotificationMessage>There is no feedback</NotificationMessage>
         ) : (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={this.countTotalFeedback}
-            avarage={this.countPositiveFeedbackPercentage}
+            total={total}
+            avarage={positiveFeedbackPercentage}
           />
         )}
       </MainSection>

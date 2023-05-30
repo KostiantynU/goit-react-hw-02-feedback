@@ -1,30 +1,32 @@
-import React, { Component } from 'react';
-import {
-  FeedbackOptionsStyled,
-  Htwo,
-  FeedbackBtnGood,
-  FeedbackBtnNeutral,
-  FeedbackBtnBad,
-} from './FeedbackOptionsStyled';
+import React from 'react';
+import { FeedbackOptionsStyled, Title, FeedbackBtn } from './FeedbackOptionsStyled';
 import PropTypes from 'prop-types';
-export class FeedbackOptions extends Component {
-  render() {
-    const { onLeaveFeedback } = this.props;
-
-    return (
-      <FeedbackOptionsStyled>
-        <Htwo>Please leave feedback</Htwo>
-        <FeedbackBtnGood type="button" name="good" onClick={onLeaveFeedback}>
-          Good
-        </FeedbackBtnGood>
-        <FeedbackBtnNeutral type="button" name="neutral" onClick={onLeaveFeedback}>
-          Neutral
-        </FeedbackBtnNeutral>
-        <FeedbackBtnBad type="button" name="bad" onClick={onLeaveFeedback}>
-          Bad
-        </FeedbackBtnBad>
-      </FeedbackOptionsStyled>
-    );
-  }
+export function FeedbackOptions(props) {
+  const { array, onLeaveFeedback } = props;
+  return (
+    <FeedbackOptionsStyled>
+      <Title>Please leave feedback</Title>
+      {array.map(el => {
+        return (
+          <FeedbackBtn type="button" key={el} onClick={() => onLeaveFeedback(el)}>
+            {el}
+          </FeedbackBtn>
+        );
+      })}
+      {/* <FeedbackBtnGood type="button" name="good" onClick={onLeaveFeedback}>
+        Good
+      </FeedbackBtnGood>
+      <FeedbackBtnNeutral type="button" name="neutral" onClick={onLeaveFeedback}>
+        Neutral
+      </FeedbackBtnNeutral>
+      <FeedbackBtnBad type="button" name="bad" onClick={onLeaveFeedback}>
+        Bad
+      </FeedbackBtnBad> */}
+    </FeedbackOptionsStyled>
+  );
 }
-FeedbackOptionsStyled.propTypes = { onLeaveFeedback: PropTypes.func };
+
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
+  array: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+};
