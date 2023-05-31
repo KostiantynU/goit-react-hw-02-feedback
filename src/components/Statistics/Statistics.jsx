@@ -2,8 +2,7 @@ import React from 'react';
 import { StatisticSection, Paragraph, SubTitle } from './StatisticsStyled';
 import PropTypes from 'prop-types';
 
-export function Statistics(props) {
-  const { avarage, total, good, neutral, bad } = props;
+export function Statistics({ avarage, total, good, neutral, bad }) {
   return (
     <StatisticSection>
       <SubTitle>Statistics</SubTitle>

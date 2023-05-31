@@ -1,8 +1,7 @@
 import React from 'react';
 import { FeedbackOptionsStyled, Title, FeedbackBtn } from './FeedbackOptionsStyled';
 import PropTypes from 'prop-types';
-export function FeedbackOptions(props) {
-  const { array, onLeaveFeedback } = props;
+export function FeedbackOptions({ array, onLeaveFeedback }) {
   return (
     <FeedbackOptionsStyled>
       <Title>Please leave feedback</Title>
@@ -13,15 +12,6 @@ export function FeedbackOptions(props) {
           </FeedbackBtn>
         );
       })}
-      {/* <FeedbackBtnGood type="button" name="good" onClick={onLeaveFeedback}>
-        Good
-      </FeedbackBtnGood>
-      <FeedbackBtnNeutral type="button" name="neutral" onClick={onLeaveFeedback}>
-        Neutral
-      </FeedbackBtnNeutral>
-      <FeedbackBtnBad type="button" name="bad" onClick={onLeaveFeedback}>
-        Bad
-      </FeedbackBtnBad> */}
     </FeedbackOptionsStyled>
   );
 }
